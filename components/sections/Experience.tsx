@@ -15,40 +15,40 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    period: '2024 — Present',
-    role: 'Senior Frontend Developer',
-    company: 'Company Name',
-    type: 'Full-time',
+    period: '2023 — 2024',
+    role: 'Partecipante',
+    company: 'CyberChallenge.IT',
+    type: 'Formazione',
     description:
-      'Leading frontend architecture for a B2B SaaS platform serving thousands of users. Drove design system adoption and significantly improved performance and developer experience.',
-    highlights: ['Design system · 60+ components', 'Bundle size −40%', 'Team of 4'],
+      'Programma nazionale di cybersecurity presso l\'Università di Catania. Percorso intensivo su ethical hacking, crittografia, sicurezza delle reti e competizioni Capture The Flag (CTF). Orientato al problem solving, al lavoro in team e allo sviluppo di competenze avanzate in sicurezza informatica.',
+    highlights: ['Ethical hacking', 'Crittografia', 'CTF competitions', 'Unict'],
   },
   {
     period: '2023 — 2024',
-    role: 'Full-Stack Developer',
-    company: 'Digital Agency',
-    type: 'Full-time',
+    role: 'Partecipante',
+    company: 'OIS & OII — Olimpiadi Italiane di Informatica',
+    type: 'Competizione',
     description:
-      'Crafted digital experiences for clients across fintech, e-commerce, and media. Owned the full product lifecycle from discovery through production deployment.',
-    highlights: ['8 projects shipped', 'CI/CD pipeline', 'TypeScript migration'],
+      'Partecipazione alle competizioni territoriali delle Olimpiadi Italiane di Informatica, sia in forma individuale (OII) che a squadre (OIS). Percorso incentrato su problem solving algoritmico, programmazione competitiva, ottimizzazione di algoritmi e strutture dati, con sfide che combinano ragionamento logico rigoroso e collaborazione in team.',
+    highlights: ['Problem solving', 'Algoritmi & strutture dati', 'Team & individuale', 'Programmazione competitiva'],
   },
   {
-    period: '2022 — 2023',
-    role: 'Frontend Developer',
-    company: 'Early-Stage Startup',
-    type: 'Full-time',
+    period: '2023 — 2024',
+    role: 'Finalista · 3° posto',
+    company: 'STMicroelectronics — Costruisci il Futuro con STM32ODE',
+    type: 'Concorso',
     description:
-      'Joined as the first frontend hire. Built the entire UI layer from scratch, establishing architecture patterns and workflows that scaled as the team grew.',
-    highlights: ['0→1 product build', 'Mobile-first redesign', '+200% engagement'],
+      'Finalista e vincitore del 3° posto al concorso nazionale promosso da STMicroelectronics. Progetto "Smart Packaging": soluzione embedded e IoT basata su microcontrollori STM32, dalla progettazione hardware/software alla prototipazione elettronica fino alla presentazione finale, con focus su innovazione tecnologica applicata a contesti reali.',
+    highlights: ['STM32 · Embedded', 'IoT', 'Prototipazione HW/SW', '3° posto nazionale'],
   },
   {
-    period: '2020 — 2022',
-    role: 'Freelance Developer & Designer',
-    company: 'Self-employed',
-    type: 'Freelance',
+    period: '2023 — 2024',
+    role: 'Finalista · 65° posto nazionale',
+    company: 'OliCyber.IT',
+    type: 'Competizione',
     description:
-      'Independent practice serving SMBs and digital agencies. Developed strong client communication, technical range, and an instinct for shipping high-quality work under pressure.',
-    highlights: ['15+ clients', 'Full-service studio', 'E-commerce focus'],
+      'Finalista della competizione nazionale OliCyber.IT, dedicata alla cybersecurity e all\'ethical hacking, con classificazione al 65° posto a livello nazionale. Percorso su crittografia, sicurezza delle reti, web security e reverse engineering, affrontando challenge tecniche in un contesto competitivo ad alto livello.',
+    highlights: ['Crittografia', 'Web security', 'Reverse engineering', '65° nazionale'],
   },
 ]
 
@@ -109,7 +109,7 @@ function ExperienceRow({ exp, i }: { exp: ExperienceItem; i: number }) {
                 delay: i * 0.06 + 0.25 + hi * 0.05,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="font-mono text-[8px] tracking-widest uppercase px-2.5 py-1 rounded-md bg-elevated border border-[rgba(255,255,255,0.04)] text-dim"
+              className="font-mono text-[8px] tracking-widest uppercase px-2.5 py-1 rounded-md bg-elevated border border-[rgba(255,255,255,0.08)] text-muted cursor-default hover:bg-[rgba(240,237,230,0.08)] hover:border-[rgba(240,237,230,0.18)] hover:text-text transition-all duration-250"
             >
               {h}
             </motion.span>

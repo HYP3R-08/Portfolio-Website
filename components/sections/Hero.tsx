@@ -55,17 +55,11 @@ export default function Hero() {
         <div className="absolute top-[15%] left-[8%] w-[500px] h-[500px] rounded-full bg-accent blur-[140px] animate-pulse-glow" />
         <div
           className="absolute bottom-[5%] right-[10%] w-[350px] h-[350px] rounded-full blur-[120px] animate-pulse-glow"
-          style={{
-            background: 'rgba(59, 130, 246, 0.08)',
-            animationDelay: '1.5s',
-          }}
+          style={{ background: 'rgba(59, 130, 246, 0.08)', animationDelay: '1.5s' }}
         />
         <div
           className="absolute top-[50%] left-[50%] w-[600px] h-[600px] rounded-full blur-[180px] -translate-x-1/2 -translate-y-1/2 animate-pulse-glow"
-          style={{
-            background: 'rgba(196, 165, 90, 0.04)',
-            animationDelay: '3s',
-          }}
+          style={{ background: 'rgba(196, 165, 90, 0.04)', animationDelay: '3s' }}
         />
       </div>
 
@@ -90,15 +84,15 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Name — the hero itself */}
+        {/* Name */}
         <h1
           className="font-display italic font-light leading-[0.88] tracking-[-0.02em]"
-          style={{ fontSize: 'clamp(3.8rem, 11.5vw, 10.5rem)' }}
+          style={{ fontSize: 'clamp(3.2rem, 9vw, 9rem)' }}
         >
           <span className="clip-text block overflow-hidden">
             <SplitReveal text="Cristian" delay={0.55} />
           </span>
-          <span className="clip-text block overflow-hidden ml-[0.06em] md:ml-[0.35em]">
+          <span className="clip-text block overflow-hidden ml-[0.06em] md:ml-[0.25em]">
             <SplitReveal text="Francesco" delay={0.68} className="text-accent" />
           </span>
           <span className="clip-text block overflow-hidden">
@@ -156,7 +150,7 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-{/* Scroll cue */}
+      {/* Scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
