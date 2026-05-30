@@ -1,12 +1,13 @@
 'use client'
 
 import { useRef } from 'react'
+import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import { FadeUp, RevealHeading, RevealParagraph, RevealLine } from '@/components/Animate'
 
 const stats = [
-  { value: '3+', label: 'Years experience' },
-  { value: '20+', label: 'Projects shipped' },
+  { value: '8+', label: 'Competitions' },
+  { value: '3', label: 'National awards' },
   { value: '10+', label: 'Technologies' },
   { value: '∞', label: 'Always learning' },
 ]
@@ -53,19 +54,22 @@ export default function About() {
             delay={0.1}
             className="font-sans text-muted text-[14px] md:text-[15px] leading-[1.85] mb-5"
           >
-            I&apos;m a creative developer and designer based in Italy, specializing
-            in crafting digital products that blend beautiful aesthetics with
-            robust engineering. I believe great software should feel as good as
-            it works.
+            I&apos;m a developer based in Sicily, Italy, with a passion for
+            embedded systems, cybersecurity, and web development. From STM32
+            microcontrollers to full-stack web apps, I enjoy working across
+            the full spectrum — hardware-close firmware and polished browser
+            interfaces alike.
           </RevealParagraph>
 
           <RevealParagraph
             delay={0.2}
             className="font-sans text-muted text-[14px] md:text-[15px] leading-[1.85] mb-12"
           >
-            With a background spanning full-stack development, UI/UX design, and
-            product thinking, I bring a holistic approach to every project —
-            from the first wireframe to the final deployment.
+            I&apos;ve competed nationally in cybersecurity (OliCyber, CyberChallenge),
+            algorithmic programming (OII/OIS), embedded IoT (STMicroelectronics),
+            and robotics (RoboCup), earning multiple awards along the way.
+            Outside competitions, I build web projects that prioritize clean
+            design and solid engineering.
           </RevealParagraph>
 
           {/* Stats */}
@@ -112,17 +116,18 @@ export default function About() {
                   : {}
               }
               transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full h-full rounded-[20px] bg-surface border border-[rgba(255,255,255,0.06)] overflow-hidden flex items-center justify-center relative"
+              className="w-full h-full rounded-[20px] overflow-hidden relative"
             >
-              <div className="text-center z-10">
-                <div className="w-20 h-20 rounded-full bg-elevated border border-[rgba(255,255,255,0.06)] mx-auto mb-3 flex items-center justify-center">
-                  <span className="font-display text-2xl italic text-accent/40">CF</span>
-                </div>
-                <span className="font-mono text-[8px] tracking-[0.2em] text-dim uppercase">
-                  Photo · Coming soon
-                </span>
-              </div>
-              <div className="absolute inset-0 grid-lines opacity-30" aria-hidden="true" />
+              <Image
+                src="/cristian.png"
+                alt="Cristian Francesco Pennino"
+                fill
+                className="object-cover object-top"
+                style={{ filter: 'grayscale(0.1) contrast(1.05) brightness(0.9)' }}
+                sizes="340px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-bg/50 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-white/[0.06] pointer-events-none" />
             </motion.div>
 
             {/* Badge — bottom-left */}

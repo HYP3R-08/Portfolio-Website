@@ -16,41 +16,153 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     period: '2023 — 2024',
-    role: 'Partecipante',
+    role: 'Participant',
     company: 'CyberChallenge.IT',
-    type: 'Formazione',
+    type: 'Training',
     description:
-      'Programma nazionale di cybersecurity presso l\'Università di Catania. Percorso intensivo su ethical hacking, crittografia, sicurezza delle reti e competizioni Capture The Flag (CTF). Orientato al problem solving, al lavoro in team e allo sviluppo di competenze avanzate in sicurezza informatica.',
-    highlights: ['Ethical hacking', 'Crittografia', 'CTF competitions', 'Unict'],
+      'National cybersecurity program at the University of Catania. Intensive track covering ethical hacking, cryptography, network security, and Capture The Flag (CTF) competitions. Focused on problem solving, teamwork, and the development of advanced skills in information security.',
+    highlights: ['Ethical hacking', 'Cryptography', 'CTF competitions', 'Unict'],
   },
   {
     period: '2023 — 2024',
-    role: 'Partecipante',
-    company: 'OIS & OII — Olimpiadi Italiane di Informatica',
-    type: 'Competizione',
+    role: 'Participant',
+    company: 'OIS & OII — Italian Olympiad in Informatics',
+    type: 'Competition',
     description:
-      'Partecipazione alle competizioni territoriali delle Olimpiadi Italiane di Informatica, sia in forma individuale (OII) che a squadre (OIS). Percorso incentrato su problem solving algoritmico, programmazione competitiva, ottimizzazione di algoritmi e strutture dati, con sfide che combinano ragionamento logico rigoroso e collaborazione in team.',
-    highlights: ['Problem solving', 'Algoritmi & strutture dati', 'Team & individuale', 'Programmazione competitiva'],
+      'Participation in the regional rounds of the Italian Olympiad in Informatics, both individually (OII) and as a team (OIS). Track centered on algorithmic problem solving, competitive programming, algorithm optimization, and data structures — combining rigorous logical reasoning with team collaboration.',
+    highlights: ['Problem solving', 'Algorithms & data structures', 'Team & individual', 'Competitive programming'],
   },
   {
     period: '2023 — 2024',
-    role: 'Finalista · 3° posto',
-    company: 'STMicroelectronics — Costruisci il Futuro con STM32ODE',
-    type: 'Concorso',
+    role: 'Finalist · 3rd place',
+    company: 'STMicroelectronics — Build the Future with STM32ODE',
+    type: 'Contest',
     description:
-      'Finalista e vincitore del 3° posto al concorso nazionale promosso da STMicroelectronics. Progetto "Smart Packaging": soluzione embedded e IoT basata su microcontrollori STM32, dalla progettazione hardware/software alla prototipazione elettronica fino alla presentazione finale, con focus su innovazione tecnologica applicata a contesti reali.',
-    highlights: ['STM32 · Embedded', 'IoT', 'Prototipazione HW/SW', '3° posto nazionale'],
+      'Finalist and 3rd-place winner of the national contest promoted by STMicroelectronics. Project "Smart Packaging": an embedded and IoT solution based on STM32 microcontrollers, covering hardware/software design, electronic prototyping, and a final presentation — with a focus on applied technological innovation.',
+    highlights: ['STM32 · Embedded', 'IoT', 'HW/SW prototyping', '3rd place national'],
   },
   {
     period: '2023 — 2024',
-    role: 'Finalista · 65° posto nazionale',
+    role: 'Finalist · 65th place national',
     company: 'OliCyber.IT',
-    type: 'Competizione',
+    type: 'Competition',
     description:
-      'Finalista della competizione nazionale OliCyber.IT, dedicata alla cybersecurity e all\'ethical hacking, con classificazione al 65° posto a livello nazionale. Percorso su crittografia, sicurezza delle reti, web security e reverse engineering, affrontando challenge tecniche in un contesto competitivo ad alto livello.',
-    highlights: ['Crittografia', 'Web security', 'Reverse engineering', '65° nazionale'],
+      'Finalist in the national OliCyber.IT competition dedicated to cybersecurity and ethical hacking, ranking 65th nationally. Track covering cryptography, network security, web security, and reverse engineering — tackling technical challenges in a high-level competitive setting.',
+    highlights: ['Cryptography', 'Web security', 'Reverse engineering', '65th national'],
+  },
+  {
+    period: '2024 — 2025',
+    role: 'Participant',
+    company: 'STMicroelectronics — Build the Future with STM32ODE',
+    type: 'Contest',
+    description:
+      'Participation in the national contest promoted by STMicroelectronics. Project "ForestGuard": an embedded and IoT solution based on STM32 microcontrollers, covering hardware/software design and electronic prototyping for forest fire monitoring — with a focus on applied technological innovation.',
+    highlights: ['STM32 · Embedded', 'IoT', 'HW/SW prototyping', 'Environmental monitoring'],
+  },
+  {
+    period: 'Jun — Jul 2025',
+    role: 'Participant',
+    company: 'NXP Summer School 2025',
+    type: 'Training',
+    description:
+      'Full-immersive program dedicated to embedded electronics and microcontroller technologies, held from June 30 to July 6, 2025. Intensive track focused on electronic design, embedded systems, firmware development, IoT, and hardware/software applications through hands-on activities and advanced labs.',
+    highlights: ['Embedded systems', 'Firmware development', 'IoT', 'HW/SW labs'],
+  },
+  {
+    period: '2025 — 2026',
+    role: 'Participant · 3rd Di Bartolo Award',
+    company: 'STMicroelectronics — Build the Future with STM32ODE',
+    type: 'Contest',
+    description:
+      'Participation in the national contest promoted by STMicroelectronics with project "AuthLog": an embedded and IoT solution based on STM32 microcontrollers for secure authentication and hardware/software integration. With the same project, winner of the 3rd place "Salvatore Di Bartolo" Award at ITIS "E. Fermi" of Giarre.',
+    highlights: ['STM32 · Embedded', 'IoT', 'Secure authentication', '3rd Di Bartolo Award'],
+  },
+  {
+    period: '2025 — 2026',
+    role: 'Finalist · 92nd place national',
+    company: 'OliCyber.IT',
+    type: 'Competition',
+    description:
+      'Finalist in the national OliCyber.IT competition dedicated to cybersecurity and ethical hacking, ranking 92nd nationally. Track covering cryptography, network security, web security, and reverse engineering — tackling technical challenges in a high-level competitive setting.',
+    highlights: ['Cryptography', 'Web security', 'Reverse engineering', '92nd national'],
+  },
+  {
+    period: '2025 — 2026',
+    role: '1st place',
+    company: 'RoboCup Junior Maze Simulation',
+    type: 'Competition',
+    description:
+      '1st-place winner at the national RoboCup Junior Maze Simulation competition, focused on robotics and artificial intelligence. Track covering programming, computer vision, and robot control — tackling technical challenges in a high-level competitive setting. Qualified for the World Championship in Incheon, July 2026.',
+    highlights: ['Programming', 'Computer vision', 'Robot control', '1st place national'],
   },
 ]
+
+const certifications = [
+  {
+    issuer: 'Cisco',
+    name: 'IT Essentials',
+    year: '2024',
+  },
+  {
+    issuer: 'Cisco',
+    name: 'CCNA: Introduction to Networks',
+    year: '2025',
+  },
+  {
+    issuer: 'Cisco',
+    name: 'CCNA: Switching, Routing & Wireless Essentials',
+    year: '2026',
+  },
+  {
+    issuer: 'Cambridge',
+    name: 'English Certification B2',
+    year: '2025',
+  },
+]
+
+function CertificationsStrip() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '0px 0px -50px 0px' })
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+      className="mt-16 pt-10 border-t border-[rgba(255,255,255,0.05)]"
+    >
+      <div className="font-mono text-[8px] tracking-[0.28em] text-accent uppercase mb-6">
+        Certifications
+      </div>
+      <div className="flex flex-col sm:flex-row gap-3">
+        {certifications.map((cert, i) => (
+          <motion.div
+            key={cert.name}
+            initial={{ opacity: 0, x: -12 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.55, delay: 0.2 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="flex items-start gap-3.5 px-4 py-3.5 rounded-xl bg-elevated border border-[rgba(255,255,255,0.05)] hover:border-accent/15 transition-colors duration-300"
+          >
+            <div className="flex-shrink-0 mt-0.5 w-6 h-6 rounded-md bg-accent/10 border border-accent/20 flex items-center justify-center" aria-hidden="true">
+              <svg className="w-3 h-3 text-accent" fill="none" viewBox="0 0 12 12">
+                <path d="M6 1l1.3 2.6L10 4.1 8 6l.5 2.9L6 7.5 3.5 8.9 4 6 2 4.1l2.7-.5L6 1z" stroke="currentColor" strokeWidth="0.9" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <div className="font-mono text-[8px] tracking-[0.18em] text-muted uppercase mb-0.5">
+                {cert.issuer} · {cert.year}
+              </div>
+              <div className="font-label text-[12px] text-text leading-snug">
+                {cert.name}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  )
+}
 
 function ExperienceRow({ exp, i }: { exp: ExperienceItem; i: number }) {
   const ref = useRef(null)
@@ -169,6 +281,9 @@ export default function Experience() {
           ))}
         </div>
       </div>
+
+      {/* Certifications */}
+      <CertificationsStrip />
     </section>
   )
 }

@@ -7,23 +7,23 @@ import { RevealLine, RevealParagraph } from '@/components/Animate'
 const categories = [
   {
     id: 'frontend',
-    label: 'Frontend',
-    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'GSAP', 'Three.js', 'CSS / SCSS'],
+    label: 'Frontend & Web',
+    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'GSAP / ScrollTrigger', 'JavaScript ES6+', 'Vite'],
   },
   {
-    id: 'backend',
-    label: 'Backend',
-    skills: ['Node.js', 'Python', 'FastAPI', 'PostgreSQL', 'Redis', 'GraphQL', 'REST APIs', 'WebSockets'],
+    id: 'embedded',
+    label: 'Embedded & IoT',
+    skills: ['Embedded C', 'STM32 (F4 / WL55)', 'ESP8266', 'SPI / I²C / UART', 'LoRa 868 MHz', 'RFID / NFC', 'PCB Design', 'Low-power Design'],
   },
   {
-    id: 'devops',
-    label: 'DevOps & Cloud',
-    skills: ['Docker', 'AWS', 'Vercel', 'GitHub Actions', 'CI / CD', 'Nginx', 'Linux', 'Terraform'],
+    id: 'ai',
+    label: 'AI & Robotics',
+    skills: ['Python', 'OpenCV', 'NumPy', 'YOLO (Ultralytics)', 'Computer Vision', 'Pathfinding (DFS / BFS)', 'Occupancy Grid', 'Webots / Erebus'],
   },
   {
-    id: 'design',
-    label: 'Design & UX',
-    skills: ['Figma', 'Prototyping', 'Design Systems', 'Typography', 'Motion Design', 'Accessibility', 'UX Research', 'Wireframing'],
+    id: 'security',
+    label: 'Security & Networking',
+    skills: ['Ethical Hacking', 'CTF', 'Cryptography', 'Web Security', 'Reverse Engineering', 'TCP / IP Networks', 'Cisco CCNA', 'Linux'],
   },
 ]
 
@@ -102,8 +102,7 @@ export default function Skills() {
           delay={0.15}
           className="font-sans text-muted text-[13px] md:text-[14px] max-w-[280px] leading-relaxed md:text-right"
         >
-          Proficient across the full stack with a deep passion for creating
-          elegant, performant interfaces. Always expanding the toolkit.
+          Spanning embedded systems, AI-driven robotics, cybersecurity, and modern web — built through real competitions and projects, not coursework.
         </RevealParagraph>
       </div>
 

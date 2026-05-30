@@ -5,23 +5,29 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import { cn } from '@/lib/utils'
-import { RevealLine, RevealParagraph } from '@/components/Animate'
-import { projects, type Project } from '@/lib/projects'
+import { projects, type Project, type ProjectCategory } from '@/lib/projects'
+import { RevealLine } from '@/components/Animate'
 
 const MotionLink = motion(Link)
 
-const FEATURED_COUNT = 4
+const FILTERS: { label: string; value: ProjectCategory | 'All' }[] = [
+  { label: 'All', value: 'All' },
+  { label: 'Web', value: 'Web' },
+  { label: 'Embedded', value: 'Embedded' },
+  { label: 'Robotics', value: 'Robotics' },
+  { label: 'Security', value: 'Security' },
+]
+
+const statusStyle: Record<string, string> = {
+  Live: 'bg-emerald-950/70 text-emerald-400 border-emerald-500/40',
+  'In Progress': 'bg-amber-950/70 text-amber-400 border-amber-500/40',
+  'Case Study': 'bg-blue-950/70 text-blue-400 border-blue-500/40',
+}
 
 function ProjectCard({ project, i }: { project: Project; i: number }) {
   const [hovered, setHovered] = useState(false)
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '0px 0px -60px 0px' })
-
-  const statusStyle: Record<string, string> = {
-    Live: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-    'In Progress': 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-    'Case Study': 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-  }
 
   return (
     <MotionLink
@@ -29,11 +35,7 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
       ref={ref}
       initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
       animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-      transition={{
-        duration: 0.85,
-        delay: i * 0.12,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      transition={{ duration: 0.85, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="group relative overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.05)] bg-surface cursor-pointer hover:border-accent/15 transition-colors duration-500 block"
@@ -54,7 +56,7 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
                 alt={project.title}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
               />
             </motion.div>
             <div className={cn('absolute inset-0 bg-gradient-to-br opacity-60', project.gradient)} />
@@ -92,7 +94,7 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
               >
                 <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
                   <span className="font-display text-xl italic text-white/25">
-                    {project.title[project.title.length - 1]}
+                    {project.title[0]}
                   </span>
                 </div>
                 <div className="flex gap-1.5">
@@ -108,8 +110,11 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
         <div className="absolute top-4 left-4">
           <span className="font-mono text-[9px] tracking-[0.3em] text-white/15">{project.index}</span>
         </div>
-        <div className="absolute top-4 right-4">
-          <span className={cn('font-mono text-[8px] tracking-widest uppercase px-2 py-1 rounded-full border', statusStyle[project.status] ?? '')}>
+        <div className="absolute top-4 right-4 flex items-center gap-2">
+          <span className="font-mono text-[8px] tracking-widest uppercase px-2.5 py-1 rounded-full border border-white/20 text-white/80 bg-black/50 backdrop-blur-sm">
+            {project.category}
+          </span>
+          <span className={cn('font-mono text-[8px] tracking-widest uppercase px-2.5 py-1 rounded-full border backdrop-blur-sm', statusStyle[project.status] ?? '')}>
             {project.status}
           </span>
         </div>
@@ -127,7 +132,7 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
           <span className="font-mono text-[9px] text-dim tracking-widest mt-1 flex-shrink-0">{project.year}</span>
         </div>
 
-        <p className="font-sans text-[12px] text-muted/75 leading-relaxed mb-4 line-clamp-2">
+        <p className="font-sans text-[12px] text-muted/75 leading-relaxed mb-4">
           {project.description}
         </p>
 
@@ -142,79 +147,112 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
           ))}
         </div>
 
-        <motion.div
-          animate={{ x: hovered ? 0 : -6, opacity: hovered ? 1 : 0 }}
-          transition={{ duration: 0.25 }}
-          className="absolute bottom-5 right-5 flex items-center gap-1.5 text-accent"
-          aria-hidden="true"
-        >
-          <span className="font-label text-[9px] tracking-[0.18em] uppercase">View</span>
-          <svg className="w-3 h-3" fill="none" viewBox="0 0 12 12">
-            <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </motion.div>
+        {project.links && project.links.length > 0 && (
+          <motion.div
+            animate={{ x: hovered ? 0 : -6, opacity: hovered ? 1 : 0 }}
+            transition={{ duration: 0.25 }}
+            className="absolute bottom-5 right-5 flex items-center gap-1.5 text-accent"
+            aria-hidden="true"
+          >
+            <span className="font-label text-[9px] tracking-[0.18em] uppercase">View</span>
+            <svg className="w-3 h-3" fill="none" viewBox="0 0 12 12">
+              <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </motion.div>
+        )}
       </div>
     </MotionLink>
   )
 }
 
-export default function Projects() {
-  const headerRef = useRef(null)
-  const headerInView = useInView(headerRef, { once: true, margin: '0px 0px -60px 0px' })
+export default function ProjectsGallery() {
+  const [active, setActive] = useState<ProjectCategory | 'All'>('All')
+
+  const filtered = active === 'All' ? projects : projects.filter((p) => p.category === active)
+
+  const availableFilters = FILTERS.filter(
+    (f) => f.value === 'All' || projects.some((p) => p.category === f.value),
+  )
 
   return (
-    <section
-      id="projects"
-      className="py-32 md:py-48 px-6 md:px-12 lg:px-20 xl:px-28 border-t border-[rgba(255,255,255,0.05)]"
-      aria-labelledby="projects-heading"
-    >
-      <div className="flex items-center gap-3.5 mb-12" aria-hidden="true">
-        <span className="font-mono text-[9px] tracking-[0.3em] text-accent uppercase">02</span>
-        <div className="h-px w-7 bg-accent/30" />
+    <>
+      {/* Header */}
+      <div className="flex items-center gap-3.5 mb-16" aria-hidden="true">
+        <a
+          href="/"
+          className="font-mono text-[9px] tracking-[0.2em] text-muted hover:text-accent uppercase transition-colors duration-300 flex items-center gap-2"
+        >
+          <svg className="w-3 h-3" fill="none" viewBox="0 0 12 12">
+            <path d="M11 6H1M5 10L1 6l4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          Home
+        </a>
+        <div className="h-px w-5 bg-accent/20" />
         <span className="font-label text-[9px] tracking-[0.22em] text-muted uppercase">Projects</span>
       </div>
 
-      <div ref={headerRef} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-        <h2
-          id="projects-heading"
-          className="font-display italic font-light text-text leading-[1.0]"
-          style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}
+      <div className="mb-14">
+        <h1
+          className="font-display italic font-light text-text leading-[1.0] mb-10"
+          style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)' }}
         >
-          <RevealLine delay={0}>Selected</RevealLine>
+          <RevealLine delay={0}>All</RevealLine>
           <RevealLine delay={0.1}>
             <span className="text-accent">work.</span>
           </RevealLine>
-        </h2>
+        </h1>
 
-        <RevealParagraph
-          delay={0.15}
-          className="font-sans text-muted text-[13px] md:text-[14px] max-w-[260px] leading-relaxed md:text-right"
+        {/* Filter pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-wrap gap-2"
+          role="group"
+          aria-label="Filter by category"
         >
-          A curated selection demonstrating range across product, design, and engineering.
-        </RevealParagraph>
+          {availableFilters.map((f) => (
+            <button
+              key={f.value}
+              onClick={() => setActive(f.value)}
+              className={cn(
+                'font-mono text-[9px] tracking-widest uppercase px-3.5 py-1.5 rounded-full border transition-all duration-250',
+                active === f.value
+                  ? 'bg-accent text-bg border-accent'
+                  : 'bg-elevated border-[rgba(255,255,255,0.07)] text-muted hover:border-accent/30 hover:text-text',
+              )}
+            >
+              {f.label}
+              <span className="ml-1.5 opacity-50">
+                {f.value === 'All' ? projects.length : projects.filter((p) => p.category === f.value).length}
+              </span>
+            </button>
+          ))}
+        </motion.div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-4 md:gap-5">
-        {projects.slice(0, FEATURED_COUNT).map((p, i) => (
+      {/* Grid */}
+      <motion.div
+        key={active}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.35 }}
+        className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5"
+      >
+        {filtered.map((p, i) => (
           <ProjectCard key={p.id} project={p} i={i} />
         ))}
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 8 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '0px 0px -30px 0px' }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="mt-12 flex justify-center"
-      >
-        <a
-          href="/projects"
-          className="group flex items-center gap-3 font-label text-[10px] tracking-[0.2em] uppercase text-muted hover:text-accent transition-colors duration-300"
-        >
-          View all projects
-          <span className="block h-px bg-current w-6 group-hover:w-10 transition-all duration-300" />
-        </a>
       </motion.div>
-    </section>
+
+      {filtered.length === 0 && (
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="font-sans text-muted text-[13px] text-center py-20"
+        >
+          No projects in this category yet.
+        </motion.p>
+      )}
+    </>
   )
 }

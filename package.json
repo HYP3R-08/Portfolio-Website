@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@remotion/player": "^4.0.467",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.0",
     "lenis": "^1.1.10",
+    "lottie-react": "^2.4.1",
     "next": "^16.2.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "remotion": "^4.0.467",
     "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {

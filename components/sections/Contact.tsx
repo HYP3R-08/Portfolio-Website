@@ -50,8 +50,7 @@ export default function Contact() {
           className="font-sans text-muted text-[14px] md:text-[15px] leading-[1.8] mb-12 max-w-md"
         >
           Whether you have a project in mind, an opportunity to discuss, or
-          simply want to connect — my inbox is always open. I reply within 24
-          hours.
+          simply want to connect — my inbox is always open.
         </RevealParagraph>
 
         {/* CTA */}

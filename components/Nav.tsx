@@ -1,21 +1,29 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
-const links = [
-  { label: 'About', href: '#about' },
-  { label: 'Work', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Journey', href: '#experience' },
-  { label: 'Contact', href: '#contact' },
+const NAV_LINKS = [
+  { label: 'About', hash: 'about' },
+  { label: 'Work', hash: 'projects' },
+  { label: 'Skills', hash: 'skills' },
+  { label: 'Journey', hash: 'experience' },
+  { label: 'Contact', hash: 'contact' },
 ]
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
+  const pathname = usePathname()
+  const isHome = pathname === '/'
+
+  const links = NAV_LINKS.map((l) => ({
+    label: l.label,
+    href: isHome ? `#${l.hash}` : `/#${l.hash}`,
+  }))
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -41,7 +49,7 @@ export default function Nav() {
         >
           {/* Logo */}
           <a
-            href="#"
+            href="/"
             className="font-label text-[11px] tracking-[0.18em] uppercase text-accent hover:text-accent-light transition-colors duration-300 px-3 py-1.5 mr-2"
           >
             PCF
