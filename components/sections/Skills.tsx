@@ -8,7 +8,7 @@ const categories = [
   {
     id: 'frontend',
     label: 'Frontend & Web',
-    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'GSAP / ScrollTrigger', 'JavaScript ES6+', 'Vite'],
+    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'GSAP / ScrollTrigger', 'JavaScript ES6+', 'Vite', 'Git / GitHub'],
   },
   {
     id: 'embedded',
@@ -18,7 +18,7 @@ const categories = [
   {
     id: 'ai',
     label: 'AI & Robotics',
-    skills: ['Python', 'OpenCV', 'NumPy', 'YOLO (Ultralytics)', 'Computer Vision', 'Pathfinding (DFS / BFS)', 'Occupancy Grid', 'Webots / Erebus'],
+    skills: ['Python', 'OpenCV', 'NumPy', 'YOLO (Ultralytics)', 'Computer Vision', 'Pathfinding (DFS / BFS)', 'Occupancy Grid'],
   },
   {
     id: 'security',
