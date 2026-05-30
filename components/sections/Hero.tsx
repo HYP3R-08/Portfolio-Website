@@ -310,23 +310,6 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      {/* ── Scroll cue ── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2.5"
-        aria-hidden="true"
-      >
-        <span className="font-mono text-[8px] tracking-[0.35em] text-dim uppercase">
-          Scroll
-        </span>
-        <motion.div
-          animate={{ y: [0, 7, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-px h-9 bg-gradient-to-b from-accent/50 to-transparent"
-        />
-      </motion.div>
     </section>
   )
 }
