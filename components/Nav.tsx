@@ -73,7 +73,8 @@ export default function Nav() {
 
           {/* CTA */}
           <a
-            href="#"
+            href="/CV_Pennino_Cristian_Francesco.pdf"
+            download
             className="hidden md:inline-flex items-center ml-3 px-4 py-1.5 text-[10px] font-label tracking-[0.15em] uppercase bg-accent text-bg rounded-full hover:bg-accent-light transition-colors duration-300"
           >
             Résumé
@@ -132,7 +133,9 @@ export default function Nav() {
               </motion.a>
             ))}
             <a
-              href="#"
+              href="/CV_Pennino_Cristian_Francesco.pdf"
+              download
+              onClick={() => setOpen(false)}
               className="block mt-4 px-4 py-2.5 text-center text-[10px] font-label tracking-[0.15em] uppercase bg-accent text-bg rounded-full hover:bg-accent-light transition-colors"
             >
               Résumé
