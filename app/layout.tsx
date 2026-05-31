@@ -41,6 +41,11 @@ export const metadata: Metadata = {
   description:
     'Portfolio of Cristian Francesco Pennino — creative developer and designer crafting digital experiences at the intersection of design and engineering.',
   keywords: ['developer', 'designer', 'portfolio', 'frontend', 'fullstack'],
+  icons: {
+    icon: '/icon-gold-ring.svg',
+    shortcut: '/icon-gold-ring.svg',
+    apple: '/icon-gold-ring.svg',
+  },
 }
 
 export default function RootLayout({
