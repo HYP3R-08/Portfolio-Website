@@ -33,16 +33,16 @@ export const projects: Project[] = [
    id: 'techstore',
     index: '01',
     title: 'TechStore',
-    subtitle: 'Web · E-Commerce · Next.js · Stripe',
+    subtitle: 'Web · E-Commerce · React · Stripe',
     description:
-      'Full-stack e-commerce platform for tech products, built with Next.js and TypeScript. Features a dynamic product catalogue with search and filtering, Stripe-powered checkout with automated receipt generation, and a responsive admin dashboard for inventory, order, and transaction management.',
+      'Full-stack e-commerce platform for tech products, built with React, Vite, and TypeScript. Features a dynamic product catalogue with search and filtering, Stripe-powered checkout with automated receipt generation, and a responsive admin dashboard for inventory, order, and transaction management.',
     overview:
-      'TechStore is a modern e-commerce platform designed from the ground up for selling technology products. The frontend is built with Next.js and TypeScript, leveraging dynamic routing for product pages and a component-based architecture that keeps the UI modular and maintainable. The product catalogue supports real-time search and multi-criteria filtering, while responsive product cards and an optimised checkout flow prioritise conversion and usability across devices. The admin dashboard provides a centralised interface for product CRUD operations, inventory tracking, and live order and transaction monitoring — all accessible from a single responsive UI.',
+      'TechStore is a modern e-commerce platform designed from the ground up for selling technology products. The frontend is built with React, Vite, and TypeScript, leveraging client-side routing for product pages and a component-based architecture that keeps the UI modular and maintainable. The product catalogue supports real-time search and multi-criteria filtering, while responsive product cards and an optimised checkout flow prioritise conversion and usability across devices. The admin dashboard provides a centralised interface for product CRUD operations, inventory tracking, and live order and transaction monitoring — all accessible from a single responsive UI.',
     challenge:
       'Integrating Stripe Checkout reliably across the full purchase funnel — from cart to confirmation — required careful handling of webhook events to keep order state consistent between the frontend, backend, and payment processor. Automated receipt and payment document generation had to be robust against partial failures mid-transaction. On the frontend, building a performant catalogue with real-time filtering at scale meant designing a state management layer that avoided unnecessary re-renders while keeping the UI reactive. The admin dashboard needed to surface live transaction data without polling overhead, driving the architecture toward event-driven updates.',
     outcome:
       'A fully functional e-commerce platform with end-to-end Stripe payment integration, automated receipt generation, and a complete admin dashboard for store management. The system handles the full commercial lifecycle — browsing, checkout, payment, confirmation, and back-office oversight — in a scalable, maintainable codebase.',
-    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Stripe API', 'REST API', 'State management'],
+    tags: ['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'Stripe API', 'REST API', 'State management'],
     year: '2025',
     status: 'Live',
     category: 'Web',
@@ -73,6 +73,7 @@ export const projects: Project[] = [
     layout: 'gallery',
     images: ['/VelvetPour2.png', '/VelvetPour3.png', '/VelvetPour4.png', '/VelvetPour1.png'],
     coverImage: '/VelvetPour1.png',
+    links: [{ label: 'Live site', href: 'https://gsap-cocktails-nu-cyan.vercel.app/' }, { label: 'GitHub', href: 'https://github.com/HYP3R-08/gsap_cocktails' }],
     gradient: 'from-red-950/40 via-rose-950/20 to-transparent',
     accentColor: 'rgba(190,24,93,0.15)',
   },
