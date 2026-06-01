@@ -37,6 +37,7 @@ const jetbrains = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://penninocristianfrancesco.dev'),
   title: 'Cristian Francesco Pennino — Developer & Designer',
   description:
     'Portfolio of Cristian Francesco Pennino — creative developer and designer crafting digital experiences at the intersection of design and engineering.',
@@ -59,6 +60,22 @@ export default function RootLayout({
       className={`${cormorant.variable} ${jakarta.variable} ${syne.variable} ${jetbrains.variable}`}
     >
       <body className="bg-bg text-text antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Cristian Francesco Pennino',
+              url: 'https://penninocristianfrancesco.dev',
+              jobTitle: 'Software Engineer & Web Developer',
+              sameAs: [
+                'https://github.com/HYP3R-08',
+                'https://www.linkedin.com/in/cristian-francesco-pennino-7a913b2ab/',
+              ],
+            }),
+          }}
+        />
         <div className="grain-overlay" aria-hidden="true" />
         {children}
       </body>
