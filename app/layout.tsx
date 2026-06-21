@@ -38,7 +38,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://penninocristianfrancesco.dev'),
-  title: 'Cristian Francesco Pennino — Developer & Designer',
+  title: 'Cristian Francesco Pennino — Developer & Aspiring Software Engineer',
   description:
     'Portfolio of Cristian Francesco Pennino — creative developer and designer crafting digital experiences at the intersection of design and engineering.',
   keywords: ['developer', 'designer', 'portfolio', 'frontend', 'fullstack'],

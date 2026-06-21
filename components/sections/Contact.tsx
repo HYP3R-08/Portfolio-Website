@@ -61,7 +61,7 @@ export default function Contact() {
           className="mb-20"
         >
           <a
-            href="mailto:hello@pennino.dev"
+            href="mailto:penninocristianfrancesco@gmail.com"
             className="group inline-flex items-center gap-3 px-7 py-3.5 bg-accent text-bg font-label text-[11px] tracking-[0.18em] uppercase rounded-full hover:bg-accent-light transition-colors duration-300"
           >
             Send a message
