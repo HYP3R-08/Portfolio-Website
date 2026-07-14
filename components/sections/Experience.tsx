@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { RevealLine, RevealParagraph } from '@/components/Animate'
+import { cn } from '@/lib/utils'
 
 interface ExperienceItem {
   period: string
@@ -11,6 +12,7 @@ interface ExperienceItem {
   type: string
   description: string
   highlights: string[]
+  featured?: boolean
 }
 
 const experiences: ExperienceItem[] = [
@@ -89,11 +91,21 @@ const experiences: ExperienceItem[] = [
   {
     period: '2025 — 2026',
     role: '1st place',
-    company: 'RoboCup Junior Maze Simulation',
+    company: 'RoboCupJunior Rescue Simulation',
     type: 'Competition',
     description:
-      '1st-place winner at the national RoboCup Junior Maze Simulation competition, focused on robotics and artificial intelligence. Track covering programming, computer vision, and robot control — tackling technical challenges in a high-level competitive setting. Qualified for the World Championship in Incheon, July 2026.',
+      '1st-place winner at the national RoboCupJunior Rescue Simulation competition with team Black Radiators, focused on autonomous robotics and artificial intelligence. Track covering programming, computer vision, and robot control — tackling technical challenges in a high-level competitive setting. Qualified for the World Championship in Incheon, July 2026.',
     highlights: ['Programming', 'Computer vision', 'Robot control', '1st place national'],
+  },
+  {
+    period: 'Jul 2026',
+    role: '3rd place',
+    company: 'RoboCup World Championship — Rescue Simulation',
+    type: 'Competition',
+    description:
+      '3rd-place winner at the RoboCup World Championship in the Rescue Simulation category with team Black Radiators, held in Incheon, South Korea. Competing against top international teams, the track covered autonomous robotics, computer vision, and real-time robot control — bringing an award home from the highest level of the competition after qualifying as national champions.',
+    highlights: ['Autonomous robotics', 'Computer vision', 'Robot control', '3rd place world'],
+    featured: true,
   },
 ]
 
@@ -111,6 +123,11 @@ const certifications = [
   {
     issuer: 'Cisco',
     name: 'CCNA: Switching, Routing & Wireless Essentials',
+    year: '2026',
+  },
+  {
+    issuer: 'Cisco',
+    name: 'CCNA: Enterprise Networking, Security, and Automation',
     year: '2026',
   },
   {
@@ -135,7 +152,7 @@ function CertificationsStrip() {
       <div className="font-mono text-[8px] tracking-[0.28em] text-accent uppercase mb-6">
         Certifications
       </div>
-      <div className="flex flex-col sm:flex-row gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {certifications.map((cert, i) => (
           <motion.div
             key={cert.name}
@@ -185,47 +202,81 @@ function ExperienceRow({ exp, i }: { exp: ExperienceItem; i: number }) {
 
       {/* Dot */}
       <div
-        className="absolute left-[-4.5px] md:left-[147.5px] top-1.5 w-2.5 h-2.5 rounded-full bg-bg border-2 border-accent/30 flex-shrink-0"
+        className={cn(
+          'absolute left-[-4.5px] md:left-[147.5px] top-1.5 w-2.5 h-2.5 rounded-full flex-shrink-0',
+          exp.featured
+            ? 'bg-accent border-2 border-accent-light shadow-[0_0_14px_3px_rgba(196,165,90,0.55)]'
+            : 'bg-bg border-2 border-accent/30',
+        )}
         aria-hidden="true"
       />
 
       {/* Content */}
       <div className="pl-6 md:pl-10 flex-1">
-        <h3 className="font-label text-[15px] font-semibold text-text mb-0.5">
-          {exp.role}
-        </h3>
-        <div className="flex items-center gap-2 mb-3">
-          <span className="font-sans text-[13px] text-accent">{exp.company}</span>
-          <span className="text-dim text-xs" aria-hidden="true">·</span>
-          <span className="font-mono text-[8px] tracking-widest text-dim uppercase">{exp.type}</span>
-        </div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.65, delay: i * 0.06 + 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="font-sans text-[13px] text-muted leading-[1.8] mb-4"
+        <div
+          className={cn(
+            exp.featured &&
+              'relative rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/[0.08] via-accent/[0.03] to-transparent px-5 py-5 md:px-6 md:py-6 shadow-[0_0_50px_-16px_rgba(196,165,90,0.4)]',
+          )}
         >
-          {exp.description}
-        </motion.p>
+          {exp.featured && (
+            <div className="inline-flex items-center gap-1.5 mb-3.5 px-2.5 py-1 rounded-full bg-accent/10 border border-accent/30">
+              <svg className="w-3 h-3 text-accent" fill="none" viewBox="0 0 12 12" aria-hidden="true">
+                <path d="M4.4 4.6 3.1 1.4M7.6 4.6 8.9 1.4" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round" />
+                <circle cx="6" cy="7.4" r="3" stroke="currentColor" strokeWidth="0.9" />
+                <path d="M6 6l.44.9.98.14-.71.69.17.98L6 8.28l-.88.42.17-.98-.71-.69.98-.14z" stroke="currentColor" strokeWidth="0.5" strokeLinejoin="round" />
+              </svg>
+              <span className="font-mono text-[8px] tracking-[0.22em] uppercase text-accent-light">
+                International podium
+              </span>
+            </div>
+          )}
+          <h3
+            className={cn(
+              'font-label font-semibold mb-0.5',
+              exp.featured ? 'text-[17px] text-accent-light' : 'text-[15px] text-text',
+            )}
+          >
+            {exp.role}
+          </h3>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="font-sans text-[13px] text-accent">{exp.company}</span>
+            <span className="text-dim text-xs" aria-hidden="true">·</span>
+            <span className="font-mono text-[8px] tracking-widest text-dim uppercase">{exp.type}</span>
+          </div>
 
-        <div className="flex flex-wrap gap-2" role="list">
-          {exp.highlights.map((h, hi) => (
-            <motion.span
-              key={h}
-              role="listitem"
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{
-                duration: 0.45,
-                delay: i * 0.06 + 0.25 + hi * 0.05,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="font-mono text-[8px] tracking-widest uppercase px-2.5 py-1 rounded-md bg-elevated border border-[rgba(255,255,255,0.08)] text-muted cursor-default hover:bg-[rgba(240,237,230,0.08)] hover:border-[rgba(240,237,230,0.18)] hover:text-text transition-all duration-250"
-            >
-              {h}
-            </motion.span>
-          ))}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.65, delay: i * 0.06 + 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="font-sans text-[13px] text-muted leading-[1.8] mb-4"
+          >
+            {exp.description}
+          </motion.p>
+
+          <div className="flex flex-wrap gap-2" role="list">
+            {exp.highlights.map((h, hi) => (
+              <motion.span
+                key={h}
+                role="listitem"
+                initial={{ opacity: 0, scale: 0.92 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{
+                  duration: 0.45,
+                  delay: i * 0.06 + 0.25 + hi * 0.05,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className={cn(
+                  'font-mono text-[8px] tracking-widest uppercase px-2.5 py-1 rounded-md border cursor-default transition-all duration-250',
+                  exp.featured
+                    ? 'bg-accent/10 border-accent/25 text-accent-light hover:bg-accent/20 hover:border-accent/40'
+                    : 'bg-elevated border-[rgba(255,255,255,0.08)] text-muted hover:bg-[rgba(240,237,230,0.08)] hover:border-[rgba(240,237,230,0.18)] hover:text-text',
+                )}
+              >
+                {h}
+              </motion.span>
+            ))}
+          </div>
         </div>
       </div>
     </motion.div>

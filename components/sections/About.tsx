@@ -8,8 +8,8 @@ import { FadeUp, RevealHeading, RevealParagraph, RevealLine } from '@/components
 const stats = [
   { value: '8+', label: 'Competitions' },
   { value: '3', label: 'National awards' },
+  { value: '1', label: 'International award' },
   { value: '10+', label: 'Technologies' },
-  { value: '∞', label: 'Always learning' },
 ]
 
 export default function About() {
