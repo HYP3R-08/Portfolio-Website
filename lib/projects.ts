@@ -30,7 +30,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-   id: 'techstore',
+    id: 'techstore',
     index: '01',
     title: 'TechStore',
     subtitle: 'Web · E-Commerce · React · Stripe',
@@ -119,7 +119,7 @@ export const projects: Project[] = [
     status: 'Case Study',
     category: 'Embedded',
     layout: 'cinematic',
-    images: ['/Smart_Packaging1.jpg', '/Smart_Packaging2.jpg', '/Smart_Packaging1.jpg'],
+    images: ['/Smart_Packaging1.jpg', '/Smart_Packaging2.jpg'],
     coverImage: '/Smart_Packaging2.jpg',
     gradient: 'from-orange-950/40 via-amber-950/20 to-transparent',
     accentColor: 'rgba(251,146,60,0.15)',
