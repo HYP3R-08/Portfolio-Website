@@ -16,7 +16,6 @@ const NAV_LINKS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const [active, setActive] = useState('')
   const pathname = usePathname()
   const isHome = pathname === '/'
 
@@ -61,8 +60,6 @@ export default function Nav() {
               <a
                 key={link.href}
                 href={link.href}
-                onMouseEnter={() => setActive(link.href)}
-                onMouseLeave={() => setActive('')}
                 className="group relative px-3.5 py-1.5 font-label text-[10px] tracking-[0.1em] uppercase text-muted hover:text-text transition-colors duration-300"
               >
                 {link.label}

@@ -1,10 +1,6 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { projects } from '@/lib/projects'
-import Nav from '@/components/Nav'
-import Footer from '@/components/sections/Footer'
-import Cursor from '@/components/Cursor'
-import ScrollProgress from '@/components/ScrollProgress'
 import ProjectDetail from '@/components/ProjectDetail'
 
 interface Props {
@@ -34,14 +30,8 @@ export default async function ProjectPage({ params }: Props) {
   const nextProject = projects[(currentIndex + 1) % projects.length]
 
   return (
-    <>
-      <Cursor />
-      <ScrollProgress />
-      <Nav />
-      <main id="main-content">
-        <ProjectDetail project={project} nextProject={nextProject} />
-      </main>
-      <Footer />
-    </>
+    <main id="main-content">
+      <ProjectDetail project={project} nextProject={nextProject} />
+    </main>
   )
 }

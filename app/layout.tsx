@@ -6,6 +6,7 @@ import {
   JetBrains_Mono,
 } from 'next/font/google'
 import './globals.css'
+import SiteChrome from '@/components/SiteChrome'
 
 const cormorant = Cormorant({
   subsets: ['latin'],
@@ -38,10 +39,21 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://penninocristianfrancesco.dev'),
-  title: 'Cristian Francesco Pennino — Developer & Aspiring Software Engineer',
+  title: 'Cristian Francesco Pennino — Software Engineer & Web Developer',
   description:
-    'Portfolio of Cristian Francesco Pennino — creative developer and designer crafting digital experiences at the intersection of design and engineering.',
-  keywords: ['developer', 'designer', 'portfolio', 'frontend', 'fullstack'],
+    'Portfolio of Cristian Francesco Pennino — software engineer and web developer building across robotics, computer vision and embedded systems, and full-stack web with React, TypeScript and Next.js.',
+  keywords: [
+    'software engineer',
+    'web developer',
+    'full-stack',
+    'frontend',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'robotics',
+    'computer vision',
+    'embedded systems',
+  ],
   icons: {
     icon: '/icon-gold-ring.svg',
     shortcut: '/icon-gold-ring.svg',
@@ -77,7 +89,7 @@ export default function RootLayout({
           }}
         />
         <div className="grain-overlay" aria-hidden="true" />
-        {children}
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   )
