@@ -54,11 +54,11 @@ export default function About() {
             delay={0.1}
             className="font-sans text-muted text-[14px] md:text-[15px] leading-[1.85] mb-5"
           >
-            I&apos;m a developer based in Sicily, Italy, with a passion for
-            embedded systems, cybersecurity, and web development. From STM32
-            microcontrollers to full-stack web apps, I enjoy working across
-            the full spectrum — hardware-close firmware and polished browser
-            interfaces alike.
+            I&apos;m a software engineer based in Sicily, Italy, working across
+            robotics, computer vision, embedded systems and full-stack web
+            development. From STM32 firmware to React and Next.js interfaces, I
+            like owning the whole stack — hardware-close and browser-facing
+            alike.
           </RevealParagraph>
 
           <RevealParagraph
@@ -67,9 +67,9 @@ export default function About() {
           >
             I&apos;ve competed nationally in cybersecurity (OliCyber, CyberChallenge),
             algorithmic programming (OII/OIS), embedded IoT (STMicroelectronics),
-            and robotics (RoboCup), earning multiple awards along the way.
-            Outside competitions, I build web projects that prioritize clean
-            design and solid engineering.
+            and robotics (RoboCup) — including 3rd place at the RoboCup 2026
+            World Championship. Outside competitions, I build software and web
+            projects that pair clean design with solid engineering.
           </RevealParagraph>
 
           {/* Stats */}

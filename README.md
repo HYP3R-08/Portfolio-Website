@@ -1,20 +1,21 @@
 # Personal Portfolio — Cristian Francesco Pennino
 
-My personal portfolio: a fast, animated single-page site built with **Next.js**, **TypeScript** and **Tailwind CSS**, with motion powered by **Framer Motion**, **Lottie** and **Remotion**, and smooth scrolling via **Lenis**.
+My personal portfolio: a fast, animated single-page site built with **Next.js** (App Router), **TypeScript** and **Tailwind CSS**, with motion powered by **Framer Motion** and smooth scrolling via **Lenis**.
 
-🔗 **Live:** 
+🔗 **Live:** [penninocristianfrancesco.dev](https://penninocristianfrancesco.dev)
 
 ---
 
 ## Features
 
 - **Single-page sections** — Hero, About, Skills, Experience, Projects, Contact and Footer.
-- **Scroll & reveal animations** — Framer Motion (`useInView`, reveal lines/paragraphs) for entrance and scroll-linked effects.
-- **Rich motion** — Lottie animations and Remotion-powered video/motion components.
+- **Dedicated project pages** — statically generated case-study routes at `/projects` and `/projects/[id]`.
+- **Scroll & reveal animations** — Framer Motion (`useInView`, masked line/word reveals) for entrance and scroll-linked effects.
 - **Smooth scrolling** — Lenis for inertial, polished scroll behaviour.
 - **Custom interactions** — animated cursor and a scroll-progress indicator.
-- **Responsive & accessible** — mobile-first, semantic, keyboard-friendly markup.
-- **Custom typography** — multiple display and monospace faces loaded via `next/font`.
+- **Accessible motion** — every animation respects `prefers-reduced-motion` (via `MotionConfig` and a CSS fallback), plus a skip-to-content link and semantic, keyboard-friendly markup.
+- **SEO** — per-page metadata, a dynamic sitemap and robots, and `Person` JSON-LD.
+- **Custom typography** — Cormorant, Plus Jakarta Sans, Syne and JetBrains Mono loaded via `next/font`.
 
 ---
 
@@ -40,7 +41,7 @@ Project data lives in `lib/projects.ts`:
 | Framework | Next.js (App Router), React |
 | Language | TypeScript |
 | Styling | Tailwind CSS |
-| Animation | Framer Motion, Lottie (`lottie-react`), Remotion |
+| Animation | Framer Motion |
 | Scrolling | Lenis (smooth scroll) |
 | Utilities | clsx, tailwind-merge |
 | Deployment | Vercel |
@@ -51,18 +52,36 @@ Project data lives in `lib/projects.ts`:
 
 ```
 app/
-├─ layout.tsx        # root layout, fonts, metadata
-├─ page.tsx          # page composition
-└─ globals.css       # Tailwind + global styles
+├─ layout.tsx        # root layout, fonts, metadata, JSON-LD
+├─ page.tsx          # home page composition
+├─ globals.css       # Tailwind + global styles
+├─ sitemap.ts        # dynamic sitemap
+├─ robots.ts         # robots rules
+└─ projects/
+   ├─ page.tsx       # projects index
+   └─ [id]/page.tsx  # per-project case study (statically generated)
 components/
-├─ Nav.tsx           # navigation
+├─ SiteChrome.tsx    # shared chrome: cursor, nav, footer, Lenis, MotionConfig
 ├─ Cursor.tsx        # custom animated cursor
 ├─ ScrollProgress.tsx# scroll progress bar
+├─ Nav.tsx           # navigation
 ├─ Animate.tsx       # reusable reveal animations
+├─ ProjectsGallery.tsx / ProjectDetail.tsx
+├─ project-layouts/  # Cinematic, Split, Gallery case-study layouts
 └─ sections/         # Hero, About, Skills, Experience, Projects, Contact, Footer
 lib/
 ├─ projects.ts       # project data
 └─ utils.ts          # helpers (cn)
+```
+
+---
+
+## Local development
+
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
 ```
 
 ---
@@ -78,4 +97,4 @@ lib/
 
 ## Author
 
-Cristian Francesco Pennino — [GitHub](https://github.com/HYP3R-08)
+Cristian Francesco Pennino — [GitHub](https://github.com/HYP3R-08) · [penninocristianfrancesco.dev](https://penninocristianfrancesco.dev)

@@ -14,10 +14,10 @@ import { cn } from '@/lib/utils'
 const EASE = [0.16, 1, 0.3, 1] as const
 
 const ROLES = [
+  'Software Engineer',
+  'Web Developer',
+  'Robotics & Computer Vision',
   'Embedded Engineer',
-  'Security Researcher',
-  'Creative Developer',
-  'Robotics Competitor',
 ]
 
 // ── Character-by-character mask reveal ───────────────────────────────────────
@@ -164,14 +164,14 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, delay: 0.4 }}
         >
-          <MarqueeBand text="DEVELOPER · DESIGNER · ENGINEER · " />
+          <MarqueeBand text="SOFTWARE ENGINEER · WEB DEVELOPER · " />
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, delay: 0.6 }}
         >
-          <MarqueeBand text="SECURITY · EMBEDDED · ROBOTICS · " reverse />
+          <MarqueeBand text="ROBOTICS · COMPUTER VISION · EMBEDDED · " reverse />
         </motion.div>
       </motion.div>
 
@@ -238,8 +238,9 @@ export default function Hero() {
           transition={{ duration: 0.85, delay: 1.6, ease: EASE }}
           className="mt-6 max-w-md font-sans text-muted text-[13px] md:text-[14px] leading-[1.75]"
         >
-          Crafting digital experiences at the intersection of design and
-          engineering — from microcontrollers to the modern web.
+          Software engineer building across robotics, computer vision and
+          embedded systems — and full-stack web with React, TypeScript and
+          Next.js.
         </motion.p>
 
         {/* CTAs */}
